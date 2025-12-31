@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy 17th Birthday 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+      background: linear-gradient(135deg, #ffd6e8, #d6f0ff);
+      overflow-x: hidden;
+      text-align: center;
+      color: #444;
+    }
+
+    h1 {
+      margin-top: 40px;
+      color: #ff6fae;
+      font-size: 3em;
+    }
+
+    .subtitle {
+      color: #6aaed6;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding-bottom: 80px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    button {
+      background: #ff9acb;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      background: #ff78b6;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Love Letter */
+    .letter {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Gift box */
+    .gift-box {
+      font-size: 4em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .gift-code {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #ff6fae;
+      font-weight: bold;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      width: 40px;
+      height: 50px;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: floatUp linear forwards;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 25px;
+      background: #aaa;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy 17th Birthday 🎉</h1>
+  <div class="subtitle">To Yuly Horm 💕</div>
+
+  <div class="container">
+
+    <!-- Love Letter -->
+    <div class="card">
+      <h2>💌 A Letter for You</h2>
+      <button onclick="toggleLetter()">Open Me!</button>
+      <div id="letter" class="letter hidden">
+        <p>
+          Happy Birthday Oun! 💖  
+          You are so special to me. Even though we are
+          far apart, You mean so much to my life.
+        </p>
+        <p>
+          Your smile, your kindness, and the way You make everything feel lighter
+          are things I appreciate more than I can put into words.
+        </p>
+        <p>
+          I hope this year brings you happiness, confidence, and lots of reasons
+          to smile. I’m so grateful I get to be part of it. 
+        </p>
+        <p>Khnom min ach sromai pi sivet del kmean nak</p>
+        <p>Khnom srolanh nak! :) </p>
+        <p>From: Ethan Pich</p>
+        <p>💗</p>
+      </div>
+    </div>
+
+    <!-- Gift -->
+    <div class="card">
+      
+      <h2>🎁 Your Gift</h2>
+      <p>Click the bow to open it!</p>
+      <div class="gift-box" onclick="openGift()">🎀</div>
+      <div id="gift" class="hidden">
+        <p class="gift-code">
+          ARITZIA GIFT CARD
+        </p>
+        <p>Code: 6006-4916-5553-5094-674 </p>
+        <p>Pin: 2179</p>
+        <p>(I'm sorry I can't surprise You with more than this but I remember Aritzia being your favorite store to shop at, so I got You this 💕)</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleLetter() {
+      document.getElementById("letter").classList.toggle("hidden");
+    }
+
+    function openGift() {
+      document.getElementById("gift").classList.remove("hidden");
+    }
+
+    // Balloon generator
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+
+      const colors = ["#ff9acb", "#ffd1e8", "#a6ddff", "#ccecff"];
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.animationDuration = 6 + Math.random() * 4 + "s";
+
+      document.body.appendChild(balloon);
+
+      setTimeout(() => balloon.remove(), 10000);
+    }
+
+    setInterval(createBalloon, 600);
+  </script>
+</body>
+</html>
